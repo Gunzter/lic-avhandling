@@ -1,0 +1,134 @@
+\chapter{Introduction}
+\section{Dissertation Outline}
+\chapter{Background}
+\chapter{Contributions and Conclusions}
+
+This dissertation has focused on different preventive measures in the area of cyber security.
+The different contributions can be visualized within the area as in Figure~\ref{fig:kappa-contributions}, where only preventive measures that have been covered in this dissertation are included.
+After this, the contributions are described in more detail in Section~\ref{sec:kappa-contributions}, followed by conclusions in Section~\ref{sec:kappa-conclusions}.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=1.0, every node/.style={scale=1.0,font=\sffamily}, node distance=2cm,
+			area/.style={draw,dotted,ellipse,font=\small\sffamily},
+			label/.style={align=center,font=\small\sffamily},
+			paper/.style={draw,fill=black,minimum width=0.15cm,minimum height=0.15cm,inner sep=0pt},
+			paperlabel/.style={font=\footnotesize\sffamily\itshape}]
+		
+		\node[draw,dashed,ellipse,minimum width=12cm,minimum height=8cm] (preventive) at (0,0) {};
+		\node[below=0.5cm of preventive.north] {Preventive measures};
+		
+		\node[area,minimum width=5cm,minimum height=5cm,anchor=west,right=0.5cm of preventive.west] (tc) {};
+		\node[label,below=0.5cm of tc.north] {Trusted computing};
+		
+		\node[area,minimum width=3cm,minimum height=3cm,anchor=east,left=0.5cm of preventive.east] (crypto) {};
+		\node[label,below=0.5cm of crypto.north] {Cryptography};
+		
+		\node[area,minimum width=4cm,minimum height=4cm,anchor=east,above=0.5cm of preventive.south] (vuln) {};
+		\node[label,above=0.3cm of vuln.south] {Vulnerability\\assessment};
+		
+		% The paper coordinates
+		
+		\node[paper,above left=1.0cm and 0.9cm of tc.center] (paperI) {};
+		\node[paper,above right=1.0cm and 0.1cm of tc.center] (paperII) {};
+		\node[paper,below left=0.4cm and 0.2cm of tc.center] (paperIII) {};
+		\node[paper,above right=1.2cm and 0.9cm of vuln.center] (paperIV) {};
+		\node[paper] (paperV) at ($(vuln.north west)!0.5!(tc.south east)$) {};
+		\node[paper,below=0.0cm of crypto.center] (paperVI) {};
+		
+		% Paper labels and arrows
+		\node[paperlabel,below left=0.5cm and 0.3cm of paperI] (paperIlabel) {\paperref{ch:tpmhas}};
+		\node[paperlabel,below right=0.1cm and 0.5cm of paperII] (paperIIlabel) {\paperref{ch:tpm12to20}};
+		\node[paperlabel,below left=0.4cm and 0.5cm of paperIII] (paperIIIlabel) {\paperref{ch:trustanchors}};
+		\node[paperlabel,below right=0.5cm and 0.5cm of paperV] (paperVlabel) {\paperref{ch:recsyssgx}};
+		\node[paperlabel,below=0.5cm of paperIV] (paperIVlabel) {\paperref{ch:recsys}};
+		\node[paperlabel,below=0.5cm of paperVI] (paperVIlabel) {\paperref{ch:slightlygreedy}};
+		
+		\draw[->] (paperIlabel)   -- (paperI);
+		\draw[->] (paperIIlabel)  -- (paperII);
+		\draw[->] (paperIIIlabel) -- (paperIII);
+		\draw[->] (paperIVlabel)  -- (paperIV);
+		\draw[->] (paperVlabel)   -- (paperV);
+		\draw[->] (paperVIlabel)  -- (paperVI);
+	\end{tikzpicture}
+	\caption{The different contributions of this dissertation to the area of preventive measures in cyber security. Each paper is positioned according to the area (or areas) it contributes to.}
+	\label{fig:kappa-contributions}
+\end{figure}
+
+
+\section{Contributions}
+\label{sec:kappa-contributions}
+
+In this section the main contributions of this dissertation are described.
+To give a quick overview, the contributions are:
+
+\begin{itemize}
+  \item A way of using TPM secure storage in high availability systems (\paperref{ch:tpmhas}), where we describe a use case where the TPM is used to store key material in a high availability system, consisting of multiple independent Computational Units (CUs) for availability purposes.
+  The secure storage must be duplicated on each individual CU for availability purposes, and we describe a solution for this, supporting both TPM 1.2 and TPM 2.0.
+
+  \item The migration of keys from TPM 1.2 to TPM 2.0, while still retaining behaviour with regard to, e.g., authorization, PCR values, and migration, even though the TPM 2.0 standard is not backwards-compatible by design (\paperref{ch:tpm12to20}).
+  The proposed design utilizes new features of TPM 2.0 to achieve the behaviour of TPM 1.2.
+
+  \item A design to protect core assets and enrollment of network security elements used in Softward Defined Networking (SDN) entities (\paperref{ch:trustanchors}).
+  We describe both a way to protect core assets such as credentials by using isolated execution environments, and also a mechanism to perform secure enrollment of entities into the SDN by using remote attestation.
+
+  \item A recommender system that generates user-specific scorings for software vulnerabilities (\paperref{ch:recsys}).
+  The system takes explicit user preferences into account, together with information learned from previous interactions with the system, and creates a user profile.
+  The profile is then used to generate a vulnerability scoring that is customized to the user, as opposed to other severity metrics such as the CVSS score.
+
+  \item A privacy-preserving mechanism that can be used to protect the client profile in recommender systems for software vulnerabilities (\paperref{ch:recsyssgx}).
+  Such profiles contain information about how clients have interacted with previous software vulnerabilities, as well as client preferences about vulnerability properties, which may be undesirable to share with the service provider.
+  The proposed solution protects the privacy of the data such that the service provider cannot infer the real profile of a particular client.
+
+  \item Finally, in the field of cryptography, an algorithm to find subsets for the Maximum Degree Monomial test (\paperref{ch:slightlygreedy}).
+  The algorithm is easily tuned to the desired computational complexity, and produces better results compared to previous greedy approaches.
+  
+\end{itemize}
+The following sections describe each contribution in more detail.
+
+\subsection{\paperItitle}
+
+In \paperref{ch:tpmhas} we describe how to use TPM secure storage in a High Availability System (HAS).
+A HAS consists of multiple, redundant, Computational Units (CUs), where each CU should be able to use the secure storage.
+In such systems, malfunctioning computational units can be removed and replaced with new units without downtime.
+This requires the secure storage to be duplicated on each individual CU for availability purposes.
+
+We consider a scenario with four major actors: a CU manufacturer, a HAS manufacturer, customers, and a Trusted Third Party (TTP) during migrations.
+In the scenario, we consider a threat model where customer employees can copy data from drives in the HAS cabinet, that complete CU boards can be stolen, and that employees of the HAS manufacturer can access HAS data during assembly.
+Apart from the threat model, the paper also specifies several other requirements that the solution should fulfil.
+The overall goal is to protect stolen encrypted data from being accessed in decrypted form, while still maintaining availability guarantees using multiple redundant CUs.
+
+The proposed solution creates a parent key, which is identical for all CUs produced by a manufacturer.
+By making this key a CMK in TPM 1.2, or by using policies in TPM 2.0, migration of the key can be restricted such that only the TTP can migrate the parent key to a new TPM.
+Assuming the TTP can be trusted, this guarantees that the parent key can not be migrated outside a TPM.
+After this, a customer-specific key is generated, in one of three possible ways, and placed as a child to the parent key.
+This key is not explicitly migratable, which means that even a malicious employee of the customer cannot migrate the key.
+The key can, however, be loaded into any CU produced by the CU manufacturer, since all units share the same parent key.
+
+A security analysis is then performed, showing that the proposed solution fulfills all the requirements, and suits the threat model as described in the beginning of the paper.
+The analysis continues by comparing the three different ways to generate the customer-specific key, and describes how the different options affect the security.
+
+To prove the feasibility of the solution, the paper also describes in detail the TPM commands that need to be used in each step of the solution, including parent key generation, customer-specific key generation, and CU replacement.
+Commands are provided for both TPM 1.2 and TPM 2.0.
+To further show that the solution works, the solution was also implemented using TPM emulators for both TPM 1.2 and TPM 2.0.
+
+\subsection{\paperIItitle}
+
+In \paperref{ch:tpm12to20} we provide an upgrade path from TPM 1.2 to TPM 2.0 by designing a solution that migrates keys from TPM 1.2 to TPM 2.0, and still retains the original behaviour of the key with regard to authorization.
+Because of the differences and lack of backwards compatibility between the two TPM versions, this is a non-trivial task, but it can be achieved with careful use of the flexible policies in TPM 2.0 to simulate the behaviour of the TPM 1.2 standard.
+
+We start by defining a set of requirements, such as keeping the same key material, keeping authorization requirements, and supporting all key types.
+The requirements essentially guarantees that the behaviour with regard to key usage should be identical on the source and destination despite the different TPM versions.
+
+The paper then describes the proposed solution from the viewpoint of four different migration scenarios:
+\begin{enumerate}
+	\item Migration of a single, simple, decryption or signing key.
+	\item Migration of a key requiring a certain state of the PCRs.
+	\item Migration of storage key, including child keys.
+	\item The scenarios above, but for CMKs.
+\end{enumerate}
+
+\section{Conclusions}
+{ \raggedright
+\printbibliography[segment=\therefsegment,heading=bibintoc]
+}
