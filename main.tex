@@ -43,6 +43,7 @@
 \usepackage{amsthm}
 \usepackage{multicol}
 \usepackage{pslatex}
+\usepackage{bytefield}
 %end guesswork
 
 \theoremstyle{definition}
@@ -231,7 +232,7 @@ sorting=anyt]{biblatex}
 
 \paperItrue
 \paperIItrue
-
+\paperIIItrue
 
 
 \newcommand{\paperItitle}{Secure Ownership Transfer for the Internet of Things}
@@ -246,6 +247,14 @@ LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 \newcommand{\paperIIref}{%
 Christian Gehrmann, Martin Gunnarsson
 ``\paperIItitle''.
+In \emph{IEEE 6th International Workshop on Privacy and Security of Big Data, Big Data 2019, Los Angeles, USA}.
+LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+}
+
+\newcommand{\paperIIItitle}{OSCORE}
+\newcommand{\paperIIIref}{%
+Martin Gunnarsson
+``\paperIIItitle''.
 In \emph{IEEE 6th International Workshop on Privacy and Security of Big Data, Big Data 2019, Los Angeles, USA}.
 LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 }
@@ -472,7 +481,7 @@ Published articles have been reprinted with the permission from the respective c
 \newrefsegment
 \addtolength{\apa}{2cm}
 \fancyhead[RE]{\paperref{ch:trustanchors}: \paperIIItitle}
-\include{papers/trustanchors}
+\include{papers/oscore/oscore}
 \fi
 
 \ifpaperIV
