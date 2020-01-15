@@ -24,6 +24,26 @@
 \usepackage{setspace}
 \usepackage{tocbibind} % include table of contents in table of contents
 
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{tabularx}
+
+%one of these is needed for "labeling"
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage{tabularx}
+
+\usepackage{xcolor}
+\usepackage{scrextend}
+\usepackage{epsfig}
+\usepackage{calc}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{pslatex}
+%end guesswork
+
 %\usepackage{showframe}% layout debug
 
 % G5 format for dissertation at EIT.
@@ -35,7 +55,7 @@ top=22mm,
 centering,
 bindingoffset=10mm]{geometry}
 
-\setlength{\headheight}{14pt}
+\setlength{\headheight}{14pt}\usepackage{url}
 
 %\usepackage[e5paper]{geometry}
 % Page margins:
@@ -64,7 +84,7 @@ bindingoffset=10mm]{geometry}
 %\setmonofont{Inconsolata}
 
 % Set line spacing to slightly below default since the default
-% becomes unnecessary big with Adobe Garamond.
+% becomes unnecessabegin labeling latex not foundry big with Adobe Garamond.
 \setstretch{0.95}
 
 % % Fonts and design for tables and figures
@@ -95,12 +115,11 @@ bindingoffset=10mm]{geometry}
 \usepackage{booktabs}
 \usepackage{makecell}
 
-% TPM12to20 dependencies
-\usepackage{enumitem}
 
 % slightlygreedy dependencies
 \usepackage{bm}
 \usepackage{subcaption}
+
 
 \usetikzlibrary{
 arrows,
@@ -144,7 +163,7 @@ sorting=anyt]{biblatex}
 \usepackage{bookmark} % to fix PDF bookmarks, otherwise the nesting is completely wrong.
 
 \addbibresource{refs.bib}
-%\addbibresource{papers/tpmhas.bib}
+\addbibresource{papers/ot/ot.bib}
 
 
 % Fix bibliography/reference naming so it both exist in toc and print
@@ -199,23 +218,19 @@ sorting=anyt]{biblatex}
 \newif\ifcontributionStatementOnly
 
 \newif\ifpaperI % TPM HAS
-\newif\ifpaperII % TPM migration
-\newif\ifpaperIII % SDN
-\newif\ifpaperIV % recsys
-\newif\ifpaperV % recsyssgx
-\newif\ifpaperVI % greedy
+\newif\ifpaperII % TPM HAS
+\newif\ifpaperIII % TPM HAS
+\newif\ifpaperIV % TPM HAS
+\newif\ifpaperV % TPM HAS
+\newif\ifpaperVI % TPM HAS
 
 \paperItrue
-\paperIItrue
-\paperIIItrue
-\paperIVtrue
-\paperVtrue
-\paperVItrue
 
 
-\newcommand{\paperItitle}{Using TPM Secure Storage in Trusted High Availability Systems}
+
+\newcommand{\paperItitle}{Secure Ownership Transfer for the Internet of Things}
 \newcommand{\paperIref}{%
-Martin Hell, Linus Karlsson, Ben Smeets, and Jelena Mirosavljevic.
+Martin Gunnarsson, Christian Gehrmann
 ``\paperItitle''.
 In \emph{The 6th International Conference on Trusted Systems, INTRUST 2014, Beijing, China}.
 LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
@@ -278,7 +293,7 @@ LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 %      text width = \textwidth,
 %      inner sep = 0,
 %      outer sep = 0,
-%      align = right
+%      align = right\ifpaperII
 %    ] (title)
 %    {\raggedleft\huge\textbf{\thetitle}\\};
 %  \node[below = 8cm of title,
@@ -429,7 +444,7 @@ Published articles have been reprinted with the permission from the respective c
 \ifpaperI
 \newrefsegment
 \fancyhead[RE]{\paperref{ch:tpmhas}: \paperItitle}
-\include{papers/tpmhas}
+\include{papers/ot/ot}
 \fi
 
 \ifpaperII
