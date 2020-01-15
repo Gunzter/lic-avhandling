@@ -33,7 +33,8 @@
 \usepackage{graphics}
 \usepackage{float}
 \usepackage{tabularx}
-
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \usepackage{xcolor}
 \usepackage{scrextend}
 \usepackage{epsfig}
@@ -43,6 +44,9 @@
 \usepackage{multicol}
 \usepackage{pslatex}
 %end guesswork
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
 
 %\usepackage{showframe}% layout debug
 
@@ -164,6 +168,7 @@ sorting=anyt]{biblatex}
 
 \addbibresource{refs.bib}
 \addbibresource{papers/ot/ot.bib}
+\addbibresource{papers/ppiot/ppiot.bib}
 
 
 % Fix bibliography/reference naming so it both exist in toc and print
@@ -225,6 +230,7 @@ sorting=anyt]{biblatex}
 \newif\ifpaperVI % TPM HAS
 
 \paperItrue
+\paperIItrue
 
 
 
@@ -233,6 +239,14 @@ sorting=anyt]{biblatex}
 Martin Gunnarsson, Christian Gehrmann
 ``\paperItitle''.
 In \emph{The 6th International Conference on Trusted Systems, INTRUST 2014, Beijing, China}.
+LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+}
+
+\newcommand{\paperIItitle}{An Identity Privacy Preserving IoT Data Protection Scheme for Cloud Based Analytics}
+\newcommand{\paperIIref}{%
+Christian Gehrmann, Martin Gunnarsson
+``\paperIItitle''.
+In \emph{IEEE 6th International Workshop on Privacy and Security of Big Data, Big Data 2019, Los Angeles, USA}.
 LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 }
 
@@ -443,15 +457,15 @@ Published articles have been reprinted with the permission from the respective c
 
 \ifpaperI
 \newrefsegment
-\fancyhead[RE]{\paperref{ch:tpmhas}: \paperItitle}
+\fancyhead[RE]{\paperref{ch:ot}: \paperItitle}
 \include{papers/ot/ot}
 \fi
 
 \ifpaperII
 \newrefsegment
 \addtolength{\apa}{2cm}
-\fancyhead[RE]{\paperref{ch:tpm12to20}: \paperIItitle}
-\include{papers/tpm12to20}
+\fancyhead[RE]{\paperref{ch:ppiot}: \paperIItitle}
+\include{papers/ppiot/ppiot}
 \fi
 
 \ifpaperIII
