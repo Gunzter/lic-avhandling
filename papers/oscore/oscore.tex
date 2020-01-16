@@ -2,11 +2,11 @@
                 \paperIIItitle}{%
                 \paperIIItitle}}
 
-
+\label{ch:oscore}
 \paperRemark{This is the full version of the paper below.
         This version contains an extended background description, and a more detailed motivation behind choices in the implementation as well as evaluation.
         \paperIIIref}
-{
+{i
 
 \section{Introduction}
 \label{s:introduction}
@@ -139,7 +139,7 @@ Figure \ref{fig:prot_struct} shows a comparison between an unprotected CoAP mess
 \centering
    \begin{subfigure}[b]{\textwidth}
    \centering
-     \begin{bytefield}[bitwidth=1em]{32}
+     \begin{bytefield}[bitwidth=.9em]{32}
         %\bitheader{0-31} \\
          \bitbox{5}{Version} & \bitbox{4}{Type} & \bitbox{7}{Token Length} & \bitbox{8}{CoAP-Code} & \bitbox{8}{Message ID} \\
          \wordbox{1}{Token} \\
@@ -153,7 +153,7 @@ Figure \ref{fig:prot_struct} shows a comparison between an unprotected CoAP mess
   \newline
     \begin{subfigure}[b]{\textwidth}
     \centering
-    \begin{bytefield}[bitwidth=1em]{32}
+    \begin{bytefield}[bitwidth=.9em]{32}
         %\bitheader{0-31} \\
          \bitbox{5}{Version} & \bitbox{4}{Type} & \bitbox{7}{Token Length} & \bitbox{8}{CoAP-Code} & \bitbox{8}{Message ID} \\
          \wordbox{1}{Token} \\

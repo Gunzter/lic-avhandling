@@ -49,7 +49,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 
-%\usepackage{showframe}% layout debug
+\usepackage{showframe}% layout debug
 
 % G5 format for dissertation at EIT.
 \usepackage[
@@ -73,18 +73,18 @@ bindingoffset=10mm]{geometry}
 %  headheight=10mm
 %}
 
-% % Set fonts
-%\setmainfont[Ligatures=TeX,Numbers={Lining,Proportional}]{AGaramondPro}[
-%	Extension	= .otf ,
-%	UprightFont	= *-Regular ,
-%	BoldFont	= *-Semibold ,
-%	ItalicFont  = *-Italic ]
-%\AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Monospaced}}}
-%\setsansfont[Ligatures=TeX]{FrutigerLTStd}[
-%	Extension	= .otf ,
-%	UprightFont	= *-Light ,
-%	BoldFont	= *-Roman ,
-%	ItalicFont  = *-LightItalic ]
+ % Set fonts
+\setmainfont[Ligatures=TeX,Numbers={Lining,Proportional}]{AGaramondPro}[
+	Extension	= .otf ,
+	UprightFont	= *-Regular ,
+	BoldFont	= *-Semibold ,
+	ItalicFont  = *-Italic ]
+\AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Monospaced}}}
+\setsansfont[Ligatures=TeX]{FrutigerLTStd}[
+	Extension	= .otf ,
+	UprightFont	= *-Light ,
+	BoldFont	= *-Roman ,
+	ItalicFont  = *-LightItalic ]
 
 %\setmonofont{Inconsolata}
 
@@ -480,7 +480,7 @@ Published articles have been reprinted with the permission from the respective c
 \ifpaperIII
 \newrefsegment
 \addtolength{\apa}{2cm}
-\fancyhead[RE]{\paperref{ch:trustanchors}: \paperIIItitle}
+\fancyhead[RE]{\paperref{ch:oscore}: \paperIIItitle}
 \include{papers/oscore/oscore}
 \fi
 
