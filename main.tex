@@ -171,6 +171,7 @@ sorting=anyt]{biblatex}
 \addbibresource{papers/ot/ot.bib}
 \addbibresource{papers/ppiot/ppiot.bib}
 \addbibresource{papers/oscore/oscore.bib}
+\addbibresource{papers/digital-twin/digital-twin.bib}
 
 % Fix bibliography/reference naming so it both exist in toc and print
 % References instead of Bibliography, and fixes rightmark so References
@@ -233,7 +234,7 @@ sorting=anyt]{biblatex}
 \paperItrue
 \paperIItrue
 \paperIIItrue
-
+\paperIVtrue
 
 \newcommand{\paperItitle}{Secure Ownership Transfer for the Internet of Things}
 \newcommand{\paperIref}{%
@@ -256,6 +257,14 @@ LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 Martin Gunnarsson, Joakim Brorsson, Francesca Palombini, Ludwig Seitz, Marco Tiloca
 ``\paperIIItitle''.
 In \emph{Ad Hoc Networks - Special Issue on Internet of Things Security and Forensics}.
+LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+}
+
+\newcommand{\paperIVtitle}{A Digital Twin Based Industrial Automation and Control System Security Architecture}
+\newcommand{\paperIVref}{%
+Christian Gehrmann, Martin Gunnarsson
+``\paperIVtitle''.
+In \emph{IEEE Transaction on Industrial Informatics}.
 LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 }
 
@@ -487,8 +496,8 @@ Published articles have been reprinted with the permission from the respective c
 \ifpaperIV
 \newrefsegment
 \addtolength{\apa}{2cm}
-\fancyhead[RE]{\paperref{ch:recsys}: \paperIVtitle}
-\include{papers/recsys}
+\fancyhead[RE]{\paperref{ch:digital-twin}: \paperIVtitle}
+\include{papers/digital-twin/digital-twin}
 \fi
 
 \ifpaperV
