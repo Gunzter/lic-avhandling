@@ -86,7 +86,12 @@ bindingoffset=10mm]{geometry}
 	BoldFont	= *-Roman ,
 	ItalicFont  = *-LightItalic ]
 
-%\setmonofont{Inconsolata}
+\setmonofont{Inconsolata}
+
+%\usepackage{inconsolata}
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+%\usepackage[T1]{fontenc}
+
 
 % Set line spacing to slightly below default since the default
 % becomes unnecessabegin labeling latex not foundry big with Adobe Garamond.
@@ -482,7 +487,7 @@ Published articles have been reprinted with the permission from the respective c
 \ifpaperII
 \newrefsegment
 \addtolength{\apa}{2cm}
-\fancyhead[RE]{\paperref{ch:ppiot}: \paperIItitle}
+\fancyhead[RE]{\truncate{.95\headwidth}{\paperref{ch:ppiot}: \paperIItitle}}
 \include{papers/ppiot/ppiot}
 \fi
 
@@ -496,7 +501,7 @@ Published articles have been reprinted with the permission from the respective c
 \ifpaperIV
 \newrefsegment
 \addtolength{\apa}{2cm}
-\fancyhead[RE]{\paperref{ch:digital-twin}: \paperIVtitle}
+\fancyhead[RE]{\truncate{.95\headwidth}{\paperref{ch:digital-twin}: \paperIVtitle}}
 \include{papers/digital-twin/digital-twin}
 \fi
 

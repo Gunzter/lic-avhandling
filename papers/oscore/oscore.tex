@@ -205,7 +205,7 @@ OSCORE provides protection against replay and message reordering attacks. To thi
 \label{s:payloadoverhead}
 To aid reasoning and facilitate further discussion in the next sections, we have analyzed the payload overhead in bytes, as introduced by DTLS and OSCORE with respect to plain CoAP. To ensure a fair comparison, we have considered the same AEAD cipher for both DTLS and OSCORE, namely AES-128-CCM-8. Tables \ref{fig:overhead_dtls} and \ref{fig:overhead_oscore} show the overhead of the two different protocols. The entry "AEAD Tag" refers to the resulting Integrity Check Value produced by the AEAD cipher.
 
-\begin{table*}[h]
+\begin{table*}[ht]
 
 \captionsetup[subtable]{position = below}
 \captionsetup[table]{position=top}
@@ -251,7 +251,7 @@ In OSCORE, the overhead can vary, due to the following reasons. First, the "Part
 With reference to Table \ref{fig:overhead_oscore}, we can see that, as long as the Key Id is chosen to have a length of maximum $4$ bytes, OSCORE will display the same or lower overhead for all Requests. Note that a Key Id of maximum $2$ bytes is expected to be the practical choice for most applications using OSCORE. Furthermore, OSCORE Responses omit a number of implicit fields in the OSCORE option, and thus showing a smaller fixed overhead of $11$ bytes. Note that, unlike DTLS, OSCORE has a (much) smaller overhead for responses than requests. Assuming a high-value Partial IV of $5$ bytes and a Key Id of $2$ bytes, this would result in an overhead of $19$ bytes per request message and of $11$ bytes per response message, i.e. of $30$ bytes for a two-way message exchange.
 
 Also, an application relying on IEEE 802.15.4 typically displays an effective data rate (i.e. excluding headers, CRCs and control packets) of about $8.4$ kbit/s (out of $250$ kbit/s). However, as shown by Latr\'{e} \emph{et al.}, IEEE 802.15.4 networks can actually achieve a throughput of about $140$ kbit/s, even if acknowledgement frames are transmitted \cite{latre:2005}. Using these numbers together with the energy consumption numbers stated in the CC2538 datasheet\footnote{\url{http://www.ti.com/lit/ds/symlink/cc2538.pdf}}, we get the numbers shown in Table \ref{tab:overhead}.
-\begin{table}[h]
+\begin{table}[ht]
 \center
 
 \begin{tabular}{l|ll|ll}
@@ -341,7 +341,7 @@ This section presents and discusses the results of our experiments, with referen
 \subsection{Responsiveness}
 The top graph in Figure \ref{fig:rtt} shows the average RTT experienced by the client for different payload sizes, with the different curves showing the three different test cases. The bottom graph shows the calculated difference in mean response time between OSCORE and COAPS, with error-bars showing the standard deviation.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{papers/oscore/images/rtt.png}
 \caption[RTT measurements]{Measurement of responsiveness comparing RTT between COAP, COAPS and OSCORE. }
@@ -350,7 +350,7 @@ The top graph in Figure \ref{fig:rtt} shows the average RTT experienced by the c
 
 Table \ref{tab:tstat} shows the statistical significance (t-statistics and p-values) for the values in the bottom graph in Figure \ref{fig:rtt}. For each payload size, the statistics are derived using paired t-tests, comparing response time sample populations.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption {Statistical significance for RTT, (t-statistics and p-values)} \label{tab:title} 
 \small\addtolength{\tabcolsep}{-2pt}
@@ -375,7 +375,7 @@ Figure \ref{fig:frag} shows the number of packages needed to transport one messa
 
 \subsection{CPU usage}
 Figure \ref{fig:parse} and Figure \ref{fig:serialize} show the CPU time for processing incoming and outgoing COAP, COAPS and OSCORE messages. The left graphs show the total CPU time for the different protocols, including cryptographic operations. The right graphs show the CPU time excluding cryptographic operations.
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{subfigure}{1.0\textwidth}
 \centering
 \includegraphics[width=1.0\textwidth]{papers/oscore/images/proc.png}
@@ -383,7 +383,7 @@ Figure \ref{fig:parse} and Figure \ref{fig:serialize} show the CPU time for proc
 \label{fig:parse}
 \end{subfigure}
 
-\begin{subfigure}[h]{1.0\textwidth}
+\begin{subfigure}[ht]{1.0\textwidth}
 \centering
 \includegraphics[width=1.0\textwidth]{papers/oscore/images/serialize.png}
 \caption[Processing measurements]{Measurement of CPU time when processing outgoing messages with COAP, COAPS and OSCORE. }
@@ -402,7 +402,7 @@ The results in both Figure \ref{fig:parse} and Figure \ref{fig:serialize} are ve
 \subsection{Memory usage}
 Figure \ref{fig:memory} shows the memory usage results. In particular, the left bar chart shows the RAM usage, including the maximum stack usage, while the right bar chart shows the ROM usage. In order to be independent from the particular used cryptographic primitives, e.g. cipher and hash functions, the shown memory results do not include memory usage due to such primitives. Furthermore, since the DTLS Handshake protocol is not comparable against anything analogous in OSCORE, the memory usage due to the DTLS Handshake is also excluded from the shown results. Nevertheless, for the sake of information completeness, the right bar chart highlights the memory utilization due to such contributions with faded color areas at the top of the bars.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{papers/oscore/images/memory.png}
 \caption[Memory utilization]{Memory utilization. The lighter parts in the ROM usage graph on the right indicates the memory used for the DTLS Handshake (in the "COAPS" test case) and for cryptographic primitives (in the "COAPS" and "OSCORE" test cases).}
@@ -414,7 +414,7 @@ We can see that OSCORE uses less RAM and ROM than DTLS. Furthermore, OSCORE only
 \subsection{Radio usage}
 Figure \ref{fig:energest} shows the radio utilization rates for the tested protocols. The left graph shows the percentage of time spent in transmit mode while the right graph shows the percentage of time spent in listening mode. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{papers/oscore/images/energest-radio.png}
 \caption[Radio measurements]{Measurements of radio time occupancy for transmit and receive for the three protocols.}
@@ -428,7 +428,7 @@ These results were acquired using Energest, which uses timers to measure the tim
 \subsection{Energy usage}
 We used Energest to measure the energy used for CPU, radio transmission and radio receiving by the different protocols for a message transaction. These results, along with a summation of total energy usage, can be seen in Figure \ref{fig:energy}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{papers/oscore/images/energest-energy.png}
 \caption[Energy Consumption per exchange]{Energy consumption per message exchange. Note that scales are different for the y-axes.}
