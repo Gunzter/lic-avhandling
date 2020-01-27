@@ -18,21 +18,28 @@ Only lately have protocols been designed for general use.
 
 
 \section{Dissertation Outline}
-We begin with an introduction to the field, and a look at some of the sub-problems.
+
+After the introduction to the thesis we will continue to provide background in Chapter \ref{ch:background}. There we will discuss the background to Cyber-physical systems, Constrained devices Wireless Sensor networks and Digital Twins. 
+
+The background will then serve as a stepping stone for the papers presented in the second part of this thesis. 
 
 
 \chapter{Background}
+\label{ch:background}
+In this chapter we will present the research background that lays the foundation for the rest of this thesis. 
 \subsection{Cyber-Physical Systems}
+\label{sec:cps}
 The first device connected to the Internet was a vending machine at Carnegie Mellon University in 1982. Almost 40 years later the number of cyber-physical devices are TODO Billions. 
 
-\subsection{Wireless sensor networks}
+\subsection{Wireless Sensor Networks}
 History
 Definitions
 
 Projection of numbers
 Communication
 
-\subsubsection{Constrained devices}
+\subsubsection{Constrained Devices}
+\label{sec:constrained_devices}
 Constrained devices (\cite{rfc7228}
 Limited in CPU-Power, ROM and RAM memory, communication bandwidth and latency. Energy limited, because of battery power or energy harvesting.
 Devices sleep to preserve battery.
@@ -40,21 +47,7 @@ Devices sleep to preserve battery.
 These constraints make traditional security solutions developed for desktop and server computing environments undesirable. Public key encryption has to be hardware-accelerated in order to be feasible, x509 certificates require to much bandwidth and memory to be stored in RAM in a device. 
 
 
-\subsection{Communication protocols}
-Bluetooth
-Zigbee and Z-Wave
-TLS and DTLS
-Object security protocols
-CoAP
-
-\subsubsection{IETF IoT}
-Protocols and ideas
-
-\subsection{IoT Data analytics}
-Tie in to Paper A
-IoT devices send data to servers for analytics, this accumulation of data can enable new analytic results 
-
-\subsection{IoT device life-cycle}
+\subsection{Security Life-cycles in Sensor Networks}
 Production
 Initial deployment
 Operation
@@ -62,12 +55,14 @@ Decommissioning
 Transfer of ownership
 
 \subsection{Digital Twins}
+\label{sec:digital_twins}
 "cyber objects"
 "A digital twin is a real time digital replica of a physical device" 	Bacchiega (2017)[Non academic reference]
 Began in aviation, aircraft engines was one of the first applications. Has spread to Wind Turbines, HVAC (Building Automation) and Utilities. 
 Already exists in manufacturing for process optimization. The technology can be used to improve security. In heterogeneous systems it is difficult to establish a picture of the system. A digital twin of the system can provide such a picture. This twin can be used for finding vulnerabilities, both by scanning for known vulnerabilities, static threat modeling and also to create a replica of the system to be used in a "Cyber Range". 
 
 \chapter{Contributions and Conclusions}
+\label{ch:coc}
 \section{Contributions}
 The following sections describe each contribution in more detail.
 
@@ -80,7 +75,7 @@ Wireless sensor networks are being deployed in larger numbers and scales. The da
 \subsection{\paperIIItitle}
 OSCORE is a protocol recently standardized by the IETF. In this work we evaluate the first constrained implementation of OSCORE against the state of the art IETF security protocol for constrained devices, CoAP. 
 \subsection{\paperIVtitle}
-We propose a security architecture for Industrial Control systems based on the concept of digital twins.
+In this paper we propose a novel security architecture for Industrial Control systems based on the concept of digital twins. Digital Twins is a concept that has been previously used for process simulation and continuous optimization. We propose a way to utilize Digital Twins to automate security mechanisms that provide vulnerability scanning and automated patching of industrial control systems.
 
 \section{Conclusions}
 Maybe the real security mechanisms was the friends we made along the way.
