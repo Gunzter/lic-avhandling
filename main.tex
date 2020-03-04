@@ -49,7 +49,9 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 
-\usepackage{showframe}% layout debug
+%DEBUG------------------
+%\usepackage{showframe}% layout debug
+%DEBUG------------------
 
 % G5 format for dissertation at EIT.
 \usepackage[
@@ -233,8 +235,6 @@ sorting=anyt]{biblatex}
 \newif\ifpaperII % TPM HAS
 \newif\ifpaperIII % TPM HAS
 \newif\ifpaperIV % TPM HAS
-\newif\ifpaperV % TPM HAS
-\newif\ifpaperVI % TPM HAS
 
 \paperItrue
 \paperIItrue
@@ -245,38 +245,31 @@ sorting=anyt]{biblatex}
 \newcommand{\paperIref}{%
 Martin Gunnarsson, Christian Gehrmann
 ``\paperItitle''.
-In \emph{The 6th International Conference on Trusted Systems, INTRUST 2014, Beijing, China}.
-LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+In \emph{The 6th International Conference on Information Systems Security and Privacy, ICISSP 2020, Valletta, Malta, 2020}, in press. 
 }
 
 \newcommand{\paperIItitle}{An Identity Privacy Preserving IoT Data Protection Scheme for Cloud Based Analytics}
 \newcommand{\paperIIref}{%
 Christian Gehrmann, Martin Gunnarsson
 ``\paperIItitle''.
-In \emph{IEEE 6th International Workshop on Privacy and Security of Big Data, Big Data 2019, Los Angeles, USA}.
-LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+In \emph{2019 IEEE International Conference on Big Data (Big Data), Los Angeles, CA, USA, 2019}, pp. 5744-5753, IEEE.
 }
 
-\newcommand{\paperIIItitle}{Object Security for the Internet of Things}
+\newcommand{\paperIIItitle}{Evaluating the efficiency of OSCORE in constrained environments}
 \newcommand{\paperIIIref}{%
 Martin Gunnarsson, Joakim Brorsson, Francesca Palombini, Ludwig Seitz, Marco Tiloca
 ``\paperIIItitle''.
-In \emph{Ad Hoc Networks - Special Issue on Internet of Things Security and Forensics}.
-LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+Submitted to \emph{Ad Hoc Networks - Special Issue on Communication and Security in Communicating Things Networks}.
 }
 
 \newcommand{\paperIVtitle}{A Digital Twin Based Industrial Automation and Control System Security Architecture}
 \newcommand{\paperIVref}{%
 Christian Gehrmann, Martin Gunnarsson
 ``\paperIVtitle''.
-In \emph{IEEE Transaction on Industrial Informatics}.
-LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
+In \emph{ IEEE Transactions on Industrial Informatics}, vol. 16, no. 1, pp. 669-680, Jan. 2020, IEEE.
 }
 
 \title{Security Solutions for Constrained Devices in Cyber-Physical Systems}
-%\title{Efficient Security Mechanisms for Cyber-Physical Systems}
-%\title{Efficient Security Protocols for Cyber-Physical Systems}
-%\title{Efficient Security Protocols for Constrained and Industrial Systems}
 \author{Martin Gunnarsson}
 \date{2020}
 
@@ -310,13 +303,14 @@ LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 		
 		% Colour text in white so that the spacing is the same as on spikblad, but with less clutter
 		\color{white}{
+		%\color{black}{
 			\vspace{10mm}
 			%{\large DOCTORAL DISSERTATION}\\
-			{\large Advisors: Martin Hell, Paul Stankovski Wagner, Ben Smeets}\\
-			{\large Faculty opponent: Jan-Erik Ekberg}\\
+			{\large Advisors: Martin Hell, Christian Gehrmann}\\
+			{\large Faculty opponent: Patrik Ekdahl}\\
 			\vspace{1cm}
 			{\footnotesize
-				Academic dissertation which, by due permission of the Faculty of Engineering at Lund University, will be publicly defended on Thursday October 24, 2019, at 09:15, in lecture hall E:1406 at the Faculty of Engineering, for the degree of Doctor of Philosophy in Engineering.
+				Academic dissertation which, by due permission of the Faculty of Engineering at Lund University, will be publicly defended on Friday March 27, 2019, at 13:15, in lecture hall E:B at the Faculty of Engineering, for the degree of Licentiate of Philosophy in Engineering.
 			}
 		}
 		\\
@@ -367,11 +361,18 @@ LNCS Vol. 9473, pp. 243--258, Springer. % DOI: 10.1007/978-3-319-27998-5_16
 \vspace*{\stretch{1}}
 %Version 1.0\linebreak[2]
 
-ISBN 978-91-7895-294-6 (printed)\\
-ISBN 978-91-7895-295-3 (electronic)\\
+ISBN 978-91-7895-444-5 (printed)\\
+ISBN 978-91-7895-445-2 (electronic)\\
 Series of licentiate and doctoral theses\\
-No. 126\\
+No. 128\\
 ISSN 1654-790X\linebreak[2]
+
+%Linus nummer
+%ISBN 978-91-7895-294-6 (printed)\\
+%ISBN 978-91-7895-295-3 (electronic)\\
+%Series of licentiate and doctoral theses\\
+%No. 126\\
+%ISSN 1654-790X\linebreak[2]
 
 \theauthor\\
 Department of Electrical and Information Technology\\
@@ -475,6 +476,7 @@ Published articles have been reprinted with the permission from the respective c
 %-------------------------------------------------------
 
 \part{Included Publications}
+\label{papers}
 
 \setcounter{chapter}{0}
 \renewcommand{\chaptername}{Paper}
@@ -505,20 +507,6 @@ Published articles have been reprinted with the permission from the respective c
 \addtolength{\apa}{2cm}
 \fancyhead[RE]{\truncate{.95\headwidth}{\paperref{ch:digital-twin}: \paperIVtitle}}
 \include{papers/digital-twin/digital-twin}
-\fi
-
-\ifpaperV
-\newrefsegment
-\addtolength{\apa}{2cm}
-\fancyhead[RE]{\paperref{ch:recsyssgx}: \paperVtitle}
-\include{papers/recsyssgx}
-\fi
-
-\ifpaperVI
-\newrefsegment
-\addtolength{\apa}{2cm}
-\fancyhead[RE]{\truncate{.95\headwidth}{\paperref{ch:slightlygreedy}: \paperVItitle}}
-\include{papers/slightlygreedy}
 \fi
 
 \part[Popular Science Summary in Swedish]{\texorpdfstring{%
