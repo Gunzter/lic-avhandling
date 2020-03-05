@@ -332,7 +332,7 @@ Our proof-of concept implementation shows that as long as we have moderate state
     \label{figure:setup}
 \end{figure}
 
-The state information for the supported twins are selected to be: $s_{u'_1} =$ \texttt{[ctrl\_flag, ctrl\_url, sw\_state]} and  $s_{u'_2} = $ \texttt{[ctrl\_url, sw\_package]}\footnote{Here is actually no state information with origin from the physical twin, $u_2$, but just digital twin state information which is propagated to the physical twin.}.  \texttt{ctrl\_flag} is a value holding software upgrade request control and error information and the \texttt{ctrl\_url} is a URL of a new software package to be installed. \texttt{sw\_state} is a list of all current software packages and versions installed on a unit and \texttt{sw\_package} is a new software package.  We also assumes a remote operator, $w$, to be present in the system controlling software upgrades through a remote user device over standard internet. 
+The state information for the supported twins are selected to be: \\ $s_{u'_1} =$ \texttt{[ctrl\_flag, ctrl\_url, sw\_state]} and  \\ $s_{u'_2} = $ \texttt{[ctrl\_url, sw\_package]}\footnote{Here is actually no state information with origin from the physical twin, $u_2$, but just digital twin state information which is propagated to the physical twin.}.  \texttt{ctrl\_flag} is a value holding software upgrade request control and error information and the \texttt{ctrl\_url} is a URL of a new software package to be installed. \texttt{sw\_state} is a list of all current software packages and versions installed on a unit and \texttt{sw\_package} is a new software package.  We also assumes a remote operator, $w$, to be present in the system controlling software upgrades through a remote user device over standard internet. 
 
 
 \subsection{PLC software update process}
@@ -381,7 +381,7 @@ We have measured the CPU-time needed by the PLC to implement our state synchroni
 
 As shown in the table the CPU-time needed by the PLC to implement the state synchronization protocol is very small. An even slower CPU will still be able to run the state synchronization without overloading the processor.
 
-\begin{table}[]
+\begin{table}[ht]
 \begin{tabular}{lll}
 
  \thead{CPU-time (ms)\\per synchronization} & \thead{ CPU-load  \\ 10 synchronizations/s} & \thead{CPU-load \\ 100 synchronizations/s} \\ \hline
@@ -397,7 +397,7 @@ As shown in the table the CPU-time needed by the PLC to implement the state sync
 \subsubsection{Network performance}
 Evaluating network performance for the state synchronization process is difficult to do without real ICS network traffic to base an evaluation scenario on. Hence, instead we evaluated the performance in an isolated system. We measured the bandwidth consumption for the PLC during the update process. We then measured the bandwidth for the update process while synchronizing with the PLC's digital-twin. The synchronization messages were of size 22 bytes in each direction. The bandwidth consumption can be seen in Table \ref{table:network-overhead}. As can be seen from the Table the bandwidth consumption is reasonable for small synchronization frequencies.
 
-\begin{table}[]
+\begin{table}[ht]
 \begin{tabular}{l|l|l}
     & Bandwidth to PLC & Bandwidth from PLC \\ \hline
 No synch  &     0.97 KB/s      &     2.06 KB/s    \\
@@ -412,7 +412,7 @@ No synch  &     0.97 KB/s      &     2.06 KB/s    \\
 
 
 \iffalse
-\begin{table}[]
+\begin{table}[ht]
 \begin{tabular}{l|l|lll}
     Message Length & Synchronization  & \multicolumn{3}{l}{Devices on network} \\
                                 &  frequency                                   & 1           & 10         & 100         \\ \hline
@@ -432,7 +432,7 @@ No synch  &     0.97 KB/s      &     2.06 KB/s    \\
 \label{sec:digital-twin:conclusion}
 Motivated by the need for new security models and principles in IACS to open up the systems for cloud based processing and data sharing, we investigated how digital twins can work as a security enablers in IACS. We introduced a new adversary model, made basic security definitions, identified security requirements, made a novel security architecture and in particular state replication design for a digital twin based IACS. The new state replication design as well as the architecture were then security evaluated against the identified requirements. We showed that the proposed synchronization design meets the introduced digital twin synchronization requirements. Furthermore, we made a high-level design of the other security components in the architecture and argue about how the suggested functions will help in meeting the identified security requirements.  Through our proof of concept implementation and performance evaluation, we also showed that the new digital twin synchronization model works well in practice for a small but real production case with reasonable performance impact. Especially, we show that as long as we have not too high update frequency, the performance impact on a platform like RaspberryPI is negligible. As expected, the bandwidth increases linear with the synchronization frequency. In our evaluation, we only reflected a few PLC states, and obviously, the more fine grain states that are reflected, the more impact it will have on the system performance and bandwidth consumption.
 
-The results shows that a digital twin based security architecture can be a promising way to protect IACS while open them up for external data sharing and access. We have here worked with defining a suitable overall architecture and synchronization model. In order to develop a fully working system based on our architecture and approach, more work is needed. Below, we discuss the most important future work:
+The results shows that a digital twin based security architecture is a promising way to protect IACS while open them up for external data sharing and access. We have here worked with defining a suitable overall architecture and synchronization model. In order to develop a fully working system based on our architecture and approach, more work is needed. Below, we discuss the most important future work:
 \begin{itemize}
 \item \textbf{Performance:} We have here made first proof of concept of the architecture. In order to see the effect of the architecture on different platform and production scenarios, more performance evaluations on different platform, with more complex digital twin state models and with larger amount of production nodes are needed. 
 \item \textbf{Intrusion detection:} In our security architecture, we have only show how on principle level how  to integrate intrusion detection at the boarder to the virtual domain. It is left for future research to design and integrate intrusion detection in a fully working system.

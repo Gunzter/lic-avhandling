@@ -128,8 +128,8 @@ Next, we give our identity privacy definitions. Now, let the adversary, $AT$ hav
 \begin{itemize}
     \item[] Game IDA \\
     \item Setup: $K \leftarrow_R \cal{K}$
-    \item Query phase: $AT$ makes a set of queries to get $v = f_K(u,m)$ together with $u$ for random $u \in U$ and chosen message $m \in M$.
-    \item Observe phase: For random $\hat{u}$ and chosen $m \in M$, $AT$ observes  $v' = f_K(\hat{u},m)$
+    \item Query phase: $AT$ makes a set of queries to get $v = f_K(u,m)$ \\ together with $u$ for random $u \in U$ and chosen message $m \in M$.
+    \item Observe phase: For random $\hat{u}$ and chosen $m \in M$, \\ $AT$ observes  $v' = f_K(\hat{u},m)$
     \item Guess: $AT \rightarrow u'$
     \item Verify: If $u' =  \hat{u}$, $AT$ wins, else $AT$ loose.
 \end{itemize}
@@ -152,7 +152,7 @@ Our solution is based on the following assumption:
 \begin{itemize}
 \item Referring to solutions like the one presented in \cite{Schuster2015} \cite{Paladi2017}, a trusted analytics provider is able to securely launch analytics applications ($A$) as well as a database manager ($DM$) on secure/isolated VM/containers on the CSP computing resources. The DB server is working on encrypted data stored at general available storage resources ($SR$) in the provider cloud. 
 \end {itemize}
-We suggest a solution where the $DB$ server is pre-configured (prior to secure launch) with IoT data item symmetric key material that will allow it to read encrypted data items stored on the provider storage resources. Similarly, all IoT units are pre-configured with matching (but not the same) symmetric key material allowing them to upload or release (for instance through a third entity in the local network) encrypted data items to the provider storage resources.
+We suggest a solution where the $DB$ server is pre-configured (prior to secure \\ launch) with IoT data item symmetric key material that will allow it to read encrypted data items stored on the provider storage resources. Similarly, all IoT units are pre-configured with matching (but not the same) symmetric key material allowing them to upload or release (for instance through a third entity in the local network) encrypted data items to the provider storage resources.
 
 Data items are directly or indirectly uploaded to the storage resources ($SR$) through the $SM$ in the provider network. The solution is agnostic with respect to how the data items are uploaded to the $SM$. The encryption of the data items are done so that an attacker who only observes stored or sent data items neither can obtain the clear text of the individual data items nor being able to know which particular IoT node that uploaded the protected data item. 
  
@@ -255,7 +255,7 @@ Each devices regularly uploads data to the $SM$ in protected format. We suggest 
     \item $u_i$ selects a second encryption IV, $IV2 = t||n_2$.
     \item $u_i$ encrypt the data item, $d$ to obtain a first ciphertext: $c1 = \text{E}_{K1_i}(IV1,d)$.
     \item $u_i$ encrypt $IV1$ to obtain a second ciphertext: $c2= \text{E}_{K2_i}(IV2,IV1)$.
-    \item $u_i$ compute inner message authentication code: $h_{in} = \text{MAC}_{IK_i}(IV2||c2||c1)$           
+    \item $u_i$ compute the inner message authentication code over $IV2||c2||c1$ : \\ $h_{in} = \text{MAC}_{IK_i}(IV2||c2||c1)$           
     \item $u_i$ calculates a message authentication code over $IV2||c2||c1||h_{in}$: $h_o = \text{MAC}_{IK}(IV2||c2||c1||h_{in})$.
 \end{enumerate}
 Finally, $u_i$ sends the protected message, $IV2||c2||c1||h_{in}||h_o$, using an arbitrary communication channel to $SM$, which verifies the message authentication tag, $h_o$, and if the verification is successful, stores $IV2||c2||c1||h_{in}$ for future processing at $SR$. The protected message format is illustrated in Figure \ref{fig:protection}.

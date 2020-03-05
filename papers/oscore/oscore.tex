@@ -203,11 +203,11 @@ OSCORE provides protection against replay and message reordering attacks. To thi
 \label{s:payloadoverhead}
 To aid reasoning and facilitate further discussion in the next sections, we have analyzed the payload overhead in bytes, as introduced by DTLS and OSCORE with respect to plain CoAP. To ensure a fair comparison, we have considered the same AEAD cipher for both DTLS and OSCORE, namely AES-128-CCM-8. Tables \ref{fig:overhead_dtls} and \ref{fig:overhead_oscore} show the overhead of the two different protocols. The entry "AEAD Tag" refers to the resulting Integrity Check Value produced by the AEAD cipher.
 
-\begin{table*}[ht]
-
-\captionsetup[subtable]{position = below}
-\captionsetup[table]{position=top}
-\begin{subtable}{0.3\linewidth}
+\begin{table}
+\caption*{Payload overhead for DTLS 1.2 and OSCORE messages (bytes).}
+\parbox[t]{.44\linewidth}{
+\caption{DTLS-record message.}
+\label{fig:overhead_dtls}
 \centering
 \begin{tabular}{l|l}
 Type    & 1  \\
@@ -218,16 +218,17 @@ Length          & 2  \\
 AEAD Tag        & 8  \\ \hline
 Total overhead           & 21
 \end{tabular}
-\caption{Overhead of a DTLS-record layer message (bytes).}
-\label{fig:overhead_dtls}
-\end{subtable}%
-\hspace*{2em}
-\begin{subtable}{0.3\linewidth}
+
+}
+\hfill
+\parbox[t]{.55\linewidth}{
 \centering
+\caption{OSCORE message.}
+\label{fig:overhead_oscore}
 \begin{tabular}{l|l|l}
                      & Request & Response \\
-OSCORE Option Byte   & 1    & 1\\
-OSCORE Flag Byte     & 1    & -\\
+Option Byte   & 1    & 1\\
+Flag Byte     & 1    & -\\
 Partial IV           & 0-5  & -\\
 Kid                  & 0-7  & -\\
 CoAP Code            & 1    & 1\\
@@ -235,12 +236,9 @@ Payload Marker       & 1    & 1\\
 AEAD Tag             & 8    &  8\\ \hline
 Total overhead       & 12-24 & 11
 \end{tabular}
-\caption{Overhead of an OSCORE message (bytes).}
-\label{fig:overhead_oscore}
+}
 
-\end{subtable}
-\caption{Payload overhead for DTLS 1.2 and OSCORE.}
-\end{table*}
+\end{table}
 
 As we can see in Table \ref{fig:overhead_dtls}, DTLS displays a fixed overhead of $21$ bytes, which is equal for both requests and responses. This results in a total overhead of $42$ bytes for a full message exchange. Note that, as defined in the DTLS profile for IoT in \cite{rfc7925} (Appendix B), devices using DTLS are expected to additionally include an $8$-byte explicit nonce to the DTLS header. This would result in an overhead of $29$ bytes per message, i.e. of $58$ bytes for each two-way message exchange.
 

@@ -283,7 +283,7 @@ Tamarin represents protocols as a multi-set rewrite rules using first order logi
 \subsection{Modeling the Ownership Transfer Protocol}
 We have modeled a simplified version of our proposed Ownership Transfer Protocol in Tamarin. We have excluded the steps 1.1 - 1.5 and 2.7 - 2.10 to prove the correctness of the core ownership transfer steps. During our process to verify the security of our proposed protocol we have introduced four lemmas.
 We have created one lemma, Protocol Correctness, to verify that our protocol can execute with a successful conclusion of the ownership transfer process. We have created another lemma, Outsider secrecy, to prove that $PSK_i$ is secret from an outside adversary. The next two lemmas Old Owner Secrecy and New Owner Secrecy are lemmas about attacks done by a party in the protocol that misbehaves. These types of attacks are not included in a standard Dolev-Yao model. To solve this problem, we have chosen to give the Dolev-Yao adversary all keys and secrets from the malicious party. The Dolev-Yao adversary then has all the capabilities to intercept, replay and send any message together with the capability to decrypt, encrypt and sign messages with the keys from the malicious party. We argue that this is a stronger attacker than a real-world malicious Old owner or New owner would be.
-We have assumed that to provide New Owner secrecy $PSK_i$ has to be kept secret from $DMS_{Old}$. To Provide Old Owner Secrecy the two keys $KO_{i1}$ and $KO_{i2}$ have to remain secret from $DMS_{New}$. For the Outsider Secrecy Property we state that no outside party can learn $PSK_i$. Our Tamarin model of our proposed protocol can be found here \footnote{\url{https://github.com/Gunzter/iot-ownership-transfer-protocol-tamarin-model}}.
+We have assumed that to provide New Owner secrecy $PSK_i$ has to be kept secret from $DMS_{Old}$. To Provide Old Owner Secrecy the two keys $KO_{i1}$ and $KO_{i2}$ have to remain secret from $DMS_{New}$. For the Outsider Secrecy Property we state that no outside party can learn $PSK_i$. 
 
 Below we list the four lemmas:
 \begin{labeling}{L4.}
@@ -334,6 +334,7 @@ $lemma \, outsider\_secrecy: \\
 
 
 Using our modeled protocol we let Tamarin prove the four stated lemmas. All of them were found to hold. We conclude that our protocol gives us the required security properties. 
+Our Tamarin model of our proposed protocol can be found here for further study \footnote{\url{www.github.com/Gunzter/iot-ownership-transfer-protocol-tamarin-model}}.
 
 
 \section{Conclusion}
