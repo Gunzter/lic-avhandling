@@ -267,7 +267,28 @@ f_u(s) = f_u((s1,s2,s3)) = (s2,s3). \label{fdef}
 \end{equation}
 From (\ref{arch:physsynchstart}) we have that $s_{u,0} = (s1_{u,0},s2_{u,0},s2_{u',0})$ and from (\ref{arch:digsynchstart}) and (\ref{arch:zerostate}), it then follows that $f_u(s_{u,0}) = h_u(s_{u,0}) =  (s2_{u,0},s3_{u,0}) = (s1_{u',0},s2_{u',0}) = s_{u',0}$, which fulfils condition (\ref{dtwinsecurity:const2}).
 
-Now, using the assumptions (\ref{arch:s2eq}),  (\ref{arch:s3eq}), (\ref{arch:phystransrestric}) and (\ref{arch:digtransrestric}), let: $\hat{\delta}_u(s_u,i_u) = (\delta1_u(s_u,i_u), \delta2_u((s2_u,s3_u),i_u), \delta2_{u'}((s2_u,s3_u),\emptyset)$. Then, it follows from (\ref{fdef}), $f_u(\hat{\delta}_u(s_u,\emptyset)) = (\delta2_u((s2_u,s3_u),\emptyset), \delta2_{u'}((s2_u,s3_u,\emptyset))$. Similar, let: $\hat{\delta}_{u'}(s_{u'},i_{u'}) = (\delta2_u((s1_{u'},s2_{u'}),\emptyset),\delta2_{u'}(s_{u'},i_{u'}))$. Then by direct calculation: $\hat{\delta}_{u'}(f_u(s_u),\emptyset) = \hat{\delta}_{u'}((s2_u,s3_u),\emptyset) = (\delta2_u((s2_u,s3_u),\emptyset),\delta2_{u'}((s2_u,s3_u),\emptyset)) = f_u(\hat{\delta}(s_u,\emptyset))$.
+\noindent
+Now, using the assumptions (\ref{arch:s2eq}),  (\ref{arch:s3eq}), (\ref{arch:phystransrestric}) and (\ref{arch:digtransrestric}), let:
+
+$\hat{\delta}_u(s_u,i_u) = (\delta1_u(s_u,i_u), \delta2_u((s2_u,s3_u),i_u), \delta2_{u'}((s2_u,s3_u),\emptyset)$.
+
+\noindent
+Then, it follows from (\ref{fdef}),
+
+$f_u(\hat{\delta}_u(s_u,\emptyset)) = (\delta2_u((s2_u,s3_u),\emptyset), \delta2_{u'}((s2_u,s3_u,\emptyset))$. 
+
+\noindent
+Similar, let:
+$\hat{\delta}_{u'}(s_{u'},i_{u'}) = (\delta2_u((s1_{u'},s2_{u'}),\emptyset),\delta2_{u'}(s_{u'},i_{u'}))$. 
+
+\noindent
+Then by direct calculation:
+
+$\hat{\delta}_{u'}(f_u(s_u),\emptyset) = \hat{\delta}_{u'}((s2_u,s3_u),\emptyset) = $ 
+
+$(\delta2_u((s2_u,s3_u),\emptyset),\delta2_{u'}((s2_u,s3_u),\emptyset)) = f_u(\hat{\delta}(s_u,\emptyset))$.
+
+\noindent
  By then letting the state $s_u$ taking any value in $S_u$, it follows that also condition (\ref{dtwinsecurity:const1}) is fulfilled.
 \end{proof}
 \begin{prop}

@@ -56,7 +56,7 @@ From the HMI, an operator can modify the setpoints and monitor the status of the
 
 Lastly, most systems today are connected to remote diagnostics and maintenance systems. These systems can be used to control the process remotely and to collect and process data, not only about the process but also about each part in the system, such as individual robots and machines. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{images/NIST_800.png}
 \caption{ICS operation according to NIST, from NIST Special Publication 800-82}
@@ -71,7 +71,7 @@ Starting at the bottom with Level 0, we have the devices that form the interface
 
 Above Level 3 is the Demilitarized Zone (DMZ). This area separates the critical and sensitive parts of process from the rest of the IT environment of the organization. The DMZ is separated from both sides by firewalls that filter the network traffic flowing through DMZ. The idea behind the DMZ is to have no direct connection into or out from the Levels 3 and below. If remote access is used in a system, this is where gateways for a remote access system is situated. Level 4 and 5 are where traditional IT resides, email servers, the Intranet, and business planning are located here.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{images/purdue.png}
 \caption{The Purdue Enterprise Reference Architecture, a model for ICS.}
