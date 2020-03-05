@@ -126,7 +126,7 @@ The Internet Engineering Task Force (IETF) has standardized terminology for thes
 
 The effect of these memory limitations is that a memory-constrained device is only capable of doing a small set of computations. A small amount of ROM limits the amount of code that can be present in the system, thus only a select few tasks can be done. A small amount of RAM limits the number of intermediary states and the size of the data that can be handled. For example, in a protocol such as Datagram Transport Layer Security (DTLS), RAM limitations directly limit the number of security contexts, which in turn limits the number of simultaneous connections the device can handle.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Classes of constrained devices according to RFC7228.}
 \label{tab:constrained-classes}
@@ -147,7 +147,7 @@ The different categories can be seen in Table \ref{tab:energy-constraints}. For 
 Since constrained nodes might be sleeping periodically, communication is often asynchronous. The lower layer MAC protocols handle radio duty-cycling and make sure that the receiving node is powered on when it is going to receive messages.
 
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Classes of energy constraints according to RFC7228.}
 \label{tab:energy-constraints}
@@ -181,7 +181,7 @@ The shrinking of processors and the decrease in the price of micro-controllers a
 Internet of Things has become the catch-all term for all kinds of connected devices. Everything from a factory connected to a SCADA network to a refrigerator with WiFi can be called an IoT device. Sometimes distinctions are made such as Industrial IoT (IIoT) for connected devices used in an industrial setting. The difference between IIoT and connected control systems described in Section \ref{sec:cps} is that IIoT has a more direct connection to computing resources such as a cloud environment \cite{mclaughlin2016undiscovered}. An IIoT deployment will differentiate from the Purdue reference model we showed in Figure \ref{fig:perdue} in that an IIoT deployment will have a direct connection between the edge devices and the cloud. There is no DMZ in IIoT, like the one that can be found in the Purdue model.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{images/WSN.png}
 \caption{A schematic of a Wireless Sensor Network in an industrial setting.}
@@ -202,7 +202,7 @@ The earliest reference to Object Security was made in 1995 in RFC1848 \cite{RFC1
 
 One schematic diagram of an object security message can be seen in Figure \ref{fig:object-security}. It does not show any actual message format, but rather a sample of some fields that might be present in such a structure. What differs between formats and standards, not shown in the figure, is encoding. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{images/object_security.pdf}
 \caption{A schematic of a message or data item protected with object security.}
@@ -240,7 +240,7 @@ Several approaches for ownership transfer exists, protocols have been proposed f
 
 A schematic view of RFID deployment and ownership transfer can be seen in Figure \ref{fig:rfid-ot}. One crucial property for RFID-tags is that they are only powered on when they are read, i.e., interrogated. The RFID-tag reader is an essential part of the system since that is the only device that can directly read the RFID-tags. The RFID-tag reader is usually able to do more advanced computation and is not usually limited in energy. Thus it can be used in the system to perform more complicated calculations.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 %\includegraphics[width=0.9\textwidth]{images/digitial-twin.png}
 \includegraphics[width=0.9\textwidth]{images/RFID-Tag_OT.pdf}
@@ -256,7 +256,7 @@ Some ownership transfer solutions for IoT \cite{tam2004protocol}, use public-key
 In Figure \ref{fig:iot-ot}, we show a schematic overview of an IoT deployment. The Management server does not directly connect to the individual devices, but often communicate over the internet, through some gateway. The presence of the gateway is an essential property of such a system. This gateway sometimes needs to translate protocols and terminate DTLS sessions to work correctly. Since individual IoT devices are connected to the Internet, the attack surface is larger compared to an RFID tag. An attacker must be in proximity to an RFID-tag to be able to communicate with it and to intercept messages. Thus many of the security requirements for RFID-systems can not be directly applied to IoT systems.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 %\includegraphics[width=0.9\textwidth]{images/digitial-twin.png}
 \includegraphics[width=0.9\textwidth]{images/IoT_OT.pdf}
@@ -288,7 +288,7 @@ In Figure \ref{fig:digital-twin}, we show how such a workflow with continuous im
 
 In \cite{grieves2014digital}\cite{grieves2017digital}, the authors present their idea of how to use Digital Twin to facilitate life-cycle management for complex systems. They discuss how to test, simulate, and improve the physical systems using a Digital Twin. But this is not the only application; many industries and fields investigate what benefits they can get from Digital twin. A summary of these results can be found in \cite{8424832}. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{images/digital_twin.png}
 \caption{A schematic representation of a physical device and its Digital Twin surrounded by the workflow of continuous optimization.}
@@ -311,7 +311,7 @@ Finite-state machines can be used for representing and modeling a variety of com
 It might also come as no surprise that computers and automation systems sometimes fail. Adding redundancy to provide fault-tolerance is one way to overcome the problem. By viewing a part of the system as a state machine and then replicating the state to another part of the system, one can achieve redundancy and reducing the probability of a system-wide outage. 
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{images/State_replication.pdf}
 \caption{A conceptual model of a state replication mechanism}
@@ -326,7 +326,7 @@ Using replication to improve the security of IoT devices has been suggested in \
 
 The technique of state machine replication has been applied to industrial control systems. In \cite{Eckhart2018}, the authors propose a state replication mechanism to be used for intrusion detection in ICS. The authors use a state replication approach to avoid prohibitive overhead in terms of network and computation overhead in the physical devices.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{images/state_replication_security.pdf}
 \caption{Adding security mechanism by replicating the physical devices to Digital Twin and perform the complex security mechanisms there.}
